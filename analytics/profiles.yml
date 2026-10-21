@@ -1,0 +1,13 @@
+analytics:
+  target: prod
+  outputs:
+    prod:
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: EU
+      method: oauth
+      priority: interactive
+      project: "{{ env_var('GCP_PROJECT') }}"
+      dataset: "{{ env_var('DBT_DATASET', 'analytics') }}"
+      threads: 8
+      type: bigquery
